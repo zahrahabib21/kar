@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kardanuniversity</title>
+    
+    <!-- فونت Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- آیکون های Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    
+    <link rel="icon" href="img/favicon_io (6)/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io (6)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io (6)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io (6)/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon_io (6)/site.webmanifest">
+
+
+
+    <style>
+       
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2874a6;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --container-padding: 2rem;
+            --transition: all 0.3s ease;
+        }
+
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+       
+        .navbar {
+            background: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        
+        .logo {
+            margin-left: auto;
+        }
+
+        .logo img {
+            width: 350px;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .menu-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-direction: row-reverse;
+        }
+
+        .menu-list a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .menu-list a:hover {
+            color: var(--accent-color);
+        }
+
+        
+        .menu-list a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: 0;
+            right: 0;
+            transition: var(--transition);
+        }
+
+        .menu-list a:hover::after {
+            width: 100%;
+        }
+
+       
+    
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+
+        .sub-title {
+            font-size: 1.1em;
+            color: #4a5568;
+            margin: 8px 0;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #2b6cb0;
+            margin: 30px 0 20px;
+            padding: 10px 0;
+            border-bottom: 2px solid #4299e1;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 100px;
+            height: 2px;
+            background: #63b3ed;
+        }
+
+      
+        .form-group {
+            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        
+        }
+
+        .input-field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        input:not([type="radio"]),
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #f7fafc;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #63b3ed;
+            box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.2);
+            background: white;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #4299e1;
+        }
+
+        .declaration {
+            margin: 40px 0;
+            padding: 25px;
+            background: #ebf8ff;
+            border-radius: 10px;
+            border-right: 4px solid #4299e1;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .declaration h3 {
+            color: #2b6cb0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .declaration p {
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .signature-section {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .signature-box {
+            flex: 1;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-top: 3px solid #cbd5e0;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .signature-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 25px;
+            }
+            
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .signature-section {
+                flex-direction: column;
+            }
+        }
+
+        .submit-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 12px 25px;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+        }
+
+        .form {
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="main-container navbar-container">
+                <div class="logo">
+                    <img src="img/logouni.jpg" alt="دانشگاه کاردان">
+                </div>
+                <ul class="menu-list">
+                    <li><a href="addmation.html">پذیرش</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li> <a href="index.html">صفحه اصلی</a></li>
+                        
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+   <form>
+    <div class="form-container">
+        <div class="header-section">
+            <h1 class="main-title">فرم ثبت نام</h1>
+            <h2 class="sub-title" style="color: #e74c3c; margin-top: 15px;">پوهنتون کاردان</h2>
+            <h3 class="sub-title">برنامه ماستری</h3>
+            <h3 class="sub-title">سال 1404</h3>
+        </div>
+
+        <hr style="margin: 20px 0; border-color: #cbd5e0;">
+
+        <div class="section-title">اطلاعات شخصی</div>
+        <div class="form-group">
+            <div class="input-field">
+                <label>نام کامل محصل <span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>نام پدر <span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>تاریخ تولد <span style="color:red;">*</span></label>
+                <input type="date" required>
+            </div>
+            <div class="input-field">
+                <label>زبان مادری<span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>جنسیت <span style="color:red;">*</span></label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" name="gender" id="male" required>
+                        <label for="male">آقا</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" name="gender" id="female" required>
+                        <label for="female">خانم</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">اطلاعات تماس</div>
+        <div class="form-group">
+            <div class="input-field">
+                <label>شماره موبایل <span style="color:red;">*</span></label>
+                <input type="tel" pattern="09[0-9]{9}" placeholder="93*" required>
+            </div>
+            <div class="input-field">
+                <label>ایمیل <span style="color:red;">*</span></label>
+                <input type="email" required>
+            </div>
+            <div class="input-field">
+                <label>تذکره<span style="color:red;">*</span></label>
+                <input type="text" pattern="[0-9]{10}" required>
+            </div>
+            <div class="input-field">
+                <label>گروپ خونی</label>
+                <select>
+                    <option value="">انتخاب کنید</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-title">محل بودوباش</div>
+        <div class="form-group">
+            <div class="input-field">
+                <label>سکونت فعلی<span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>شهر <span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>آدرس دقیق <span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>کد پستی</label>
+                <input type="text" pattern="[0-9]{10}">
+            </div>
+        </div>
+
+        <div class="section-title">اطلاعات مکتب</div>
+        <div class="form-group">
+            <div class="input-field">
+                <label>نام مکتب<span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>سال فارغت<span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>فیصدی مکتب<span style="color:red;">*</span></label>
+                <input type="" required>
+            </div>
+        </div>
+
+        <div class="section-title">اطلاعات لیسانس</div>
+        <div class="form-group">
+            <div class="input-field">
+                <label>نام پوهنتون<span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>سال فارغت<span style="color:red;">*</span></label>
+                <input type="text" required>
+            </div>
+            <div class="input-field">
+                <label>فیصدی پوهنتون<span style="color:red;">*</span></label>
+                <input type="" required>
+            </div>
+
+            <div class="signature-box">
+                <label>بخش</label>
+                <select>
+                    <option value="">انتخاب کنید</option>
+                    <option>کمپیوتر ساینس</option>
+                    <option>مهندسی</option>
+                    <option>اقتصاد</option>
+                    <option>تجارت</option>
+                    <option>علوم اجتماعی</option>
+                    <option>حقوق</option>
+                </select>
+            </div>
+        </div>
+
+        
+
+        <div class="section-title">اطلاعات مورد ضرورت</div>
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>امضا محصل</p>
+                <small><input type="file"></small>
+            </div>
+            <div class="signature-box">
+                <p>عکس محصل </p>
+                <small><input type="file"></small>
+            </div>
+        </div>
+
+        
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>تذکره محصل</p>
+                <small><input type="file"></small>
+            </div>
+            <div class="signature-box">
+                <label>نام دوره ماستری</label>
+                <select>
+                    <option value="">انتخاب کنید</option>
+                    <option>ماستری در کمپیوتر ساینس</option>
+                    <option>ماستری در اقتصاد</option>
+                    <option>ماستری در مدیریت تجارت</option>
+                    <option>ماستری در حقوق بین‌الملل</option>
+                  
+                </select>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>شهادت نامه</p>
+                <small><input type="file"></small>
+            </div>
+        </div>
+
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>سند لیسانس</p>
+                <small><input type="file"></small>
+            </div>
+        </div>
+    </div>
+    
+        
+        
+
+            <div>
+        <button type="submit" class="submit-btn">ثبت نام نهایی</button>
+    </div>
+
+   </form>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دانشگاه کاردان</title>
+    
+    <!-- فونت Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- آیکون های Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    
+    <link rel="icon" href="img/favicon_io (6)/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon_io (6)/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_io (6)/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_io (6)/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon_io (6)/site.webmanifest">
+
+
+
+    <style>
+       
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2874a6;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f5f7fa;
+            --white: #ffffff;
+            --container-padding: 2rem;
+            --transition: all 0.3s ease;
+        }
+
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+       
+        .navbar {
+            background: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        
+        .logo {
+            margin-left: auto;
+        }
+
+        .logo img {
+            width: 350px;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .logo img:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .menu-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-direction: row-reverse;
+        }
+
+        .menu-list a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .menu-list a:hover {
+            color: var(--accent-color);
+        }
+
+        
+        .menu-list a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: 0;
+            right: 0;
+            transition: var(--transition);
+        }
+
+        .menu-list a:hover::after {
+            width: 100%;
+        }
+
+       
+    
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+       
+    
+        .site-footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-content h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-content span {
+            display: block;
+            margin: 0.8rem 0;
+            font-size: 0.95rem;
+        }
+
+        .social-icons {
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin: 0 1.2rem;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* انیمیشن ها */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* رسپانسیو */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 0 1rem;
+            }
+
+            .navbar-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .menu-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-container {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .about-text h1 {
+                font-size: 2rem;
+            }
+
+            .about-img {
+                max-width: 100%;
+            }
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaecef;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border-right: 4px solid var(--accent-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+       
+        .about-content {
+            font-size: 16px;
+            text-align: justify;
+            line-height: 1.8;
+        }
+        
+        .about-content p {
+            margin-bottom: 15px;
+        }
+        
+        
+        .programs-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .program-type {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .program-type h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .program-list {
+            list-style: none;
+        }
+        
+        .program-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .program-item:hover {
+            background-color: #e8f4fc;
+            transform: translateX(-5px);
+        }
+        
+        .program-item::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        
+       
+        .facility-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .facility-item:hover {
+            background-color: #f0f7fd;
+        }
+        
+        .facility-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e8f4fc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+            color: var(--secondary-color);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .exam-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border-right: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        
+        .exam-info:hover {
+            background-color: #e8f4fc;
+        }
+        
+        .exam-date {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 5px;
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .award-section {
+            text-align: center;
+            margin: 25px 0;
+            font-size: 30px;
+            color:red;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+      
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+            text-align: center;
+        }
+        
+        .contact-info div {
+            margin-bottom: 10px;
+        }
+        
+        .phone, .Email {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .address {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0 30px;
+            justify-content: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 350px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            .university-name {
+                font-size: 28px;
+            }
+            
+            .university-name-english {
+                font-size: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+            
+            .programs-container {
+                flex-direction: column;
+            }
+            
+            .award-section {
+                font-size: 24px;
+            }
+            
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .image-container img {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="main-container navbar-container">
+                <div class="logo">
+                    <img src="img/logouni.jpg" alt="دانشگاه کاردان">
+                </div>
+                <ul class="menu-list">
+                    <li><a href="addmation.html">پذیرش</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li> <a href="index.html">صفحه اصلی</a></li>
+                        
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="section">
+        <h2 class="section-title">پیشتر در باره ما بدانید</h2>
+        <div class="about-content">
+            <p>پوهنتون کاردان یک دانشگاه خصوصی در کابل، افغانستان است که در سال ۲۰۰۲ تاسیس شده است. این دانشگاه به عنوان یکی از معتبرترین و پیشروترین مؤسسات آموزشی کشور شناخته می‌شود.</p>
+            <p>در زمینه‌های مختلف تحصیلی از جمله علوم اجتماعی، مهندسی، حقوق و مدیریت برنامه‌های تحصیلی ارائه می‌دهد. پوهنتون کاردان تلاش می‌کند تا آموزش با کیفیت بالا و امکانات پیشرفته را به دانشجویان خود ارائه دهد.</p>
+            
+            <div class="highlight-box">
+                ماموریت ما تربیه نسل خلاق، متعهد و مسلکی است که بتواند در توسعه و پیشرفت کشور سهم فعال داشته باشد.
+            </div>
+            
+            <p>پوهنتون کاردان با داشتن کادر علمی مجرب و آزمایشگاه‌های مدرن، محیطی مناسب برای یادگیری و پژوهش فراهم کرده است.</p>
+        </div>
+        <div class="image-container">
+            <img src="img/parwan2.jpg" alt="Kardan University Campus">
+            <img src="img/aa.jpg" alt="University Library">
+            <img src="img/taimani.jpg" alt="Student Activities">
+        </div>
+    </div>
+    
+
+    <div class="section">
+        <h2 class="section-title">استادان مجرب و با تجربه</h2>
+        <div class="about-content">
+            <p>پوهنتون کاردان با بهره‌گیری از اساتید مجرب و با تجربه که بسیاری از آنان دارای مدارج عالی علمی از دانشگاه‌های معتبر بین‌المللی هستند، کیفیت آموزشی ممتازی ارائه می‌دهد.</p>
+            
+            <div class="highlight-box">
+                کادر علمی ما ترکیبی از تجربه بین‌المللی و شناخت عمیق از نیازهای آموزشی افغانستان است.
+            </div>
+            
+            <p>روش‌های تدریس نوین، ارتباط مستمر با صنعت و توجه به نیازهای بازار کار از ویژگی‌های بارز سیستم آموزشی پوهنتون کاردان می‌باشد.</p>
+        </div>
+        <div class="image-container">
+            <img src="img/bb.jpg" alt="University Professor">
+            <img src="img/ee.jpg" alt="Classroom Lecture">
+            <img src="img/dd.jpg" alt="Academic Discussion">
+        </div>
+    </div>
+    
+    
+    <div class="section">
+        <h2 class="section-title">رشته‌های تحصیلی</h2>
+        <div class="programs-container">
+            <div class="program-type">
+                <h3>برنامه‌های لیسانس</h3>
+                <ul class="program-list">
+                    <li class="program-item">کمپیوتر ساینس</li>
+                    <li class="program-item">اقتصاد</li>
+                    <li class="program-item">تجارت</li>
+                    <li class="program-item">حقوق</li>
+                    <li class="program-item">علوم اجتماعی</li>
+                    <li class="program-item">مهندسی</li>
+                </ul>
+            </div>
+            
+            <div class="program-type">
+                <h3>برنامه‌های ماستری</h3>
+                <ul class="program-list">
+                    <li class="program-item">ماستری در کمپیوتر ساینس</li>
+                    <li class="program-item">ماستری در اقتصاد</li>
+                    <li class="program-item">ماستری در مدیریت تجارت</li>
+                    <li class="program-item">ماستری در حقوق بین‌الملل</li>
+                </ul>
+            </div>
+            
+            <div class="program-type">
+                <h3>برنامه‌های کوتاه مدت</h3>
+                <ul class="program-list">
+                    <li class="program-item">دوره‌های زبان انگلیسی</li>
+                    <li class="program-item">دوره‌های مهارت‌های کامپیوتری</li>
+                    <li class="program-item">دوره‌های مدیریت پروژه</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="section">
+        <h2 class="section-title">امکانات آموزشی</h2>
+        <div class="facility-item">
+            <div class="facility-icon"><i class="fas fa-laptop-code"></i></div>
+            <div>با صنوف و کمپیوتر لب مجهز برای دانش آموزان با جدیدترین تکنالوژی</div>
+        </div>
+        
+        <div class="facility-item">
+            <div class="facility-icon"><i class="fas fa-book"></i></div>
+            <div>کتابخانه مدرن با هزاران جلد کتاب چاپی و الکترونیکی</div>
+        </div>
+        
+        <div class="facility-item">
+            <div class="facility-icon"><i class="fas fa-wifi"></i></div>
+            <div>دسترسی به اینترنت پرسرعت در تمام محوطه دانشگاه</div>
+        </div>
+        
+        <div class="facility-item">
+            <div class="facility-icon"><i class="fas fa-flask"></i></div>
+            <div>آزمایشگاه‌های مجهز برای رشته‌های علمی و تخنیکی</div>
+        </div>
+        
+        <div class="image-container">
+            <img src="img/computer-lab.jpg" alt="Computer Lab">
+            <img src="img/engineering-lab.jpg" alt="Engineering Lab">
+            <img src="img/engineering-showroom.jpg" alt="University Library">
+        </div>
+        
+        <div class="exam-info">
+            <div><i class="fas fa-graduation-cap"></i> برای سمستر خزانی محصل می‌پذیرد</div>
+            <div>زمان امتحان</div>
+            <div class="exam-date">15 میزان</div>
+        </div>
+        
+        <div class="award-section">
+            <i class="fas fa-trophy"></i> کاردان کانون برگزیدگان
+        </div>
+    </div>
+    
+
+ 
+
+    <footer class="site-footer">
+        <div class="main-container footer-content">
+            <h4>راه های ارتباطی ما</h4>
+            <hr>
+            <span>شماره تماس: ۰۷۷۷۵۲۸۳۸۳۶</span>
+            <span>ایمیل: kardanuniversity@gmail.com </span>
+            <span>کابل، افغانستان</span>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
